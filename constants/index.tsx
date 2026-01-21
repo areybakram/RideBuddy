@@ -74,23 +74,23 @@ export const icons = {
 export const Onboarding = [
   {
     id: 1,
-    title: "The perfect ride is just a tap away!",
+    title: "Start your journey with Ryde!",
     description:
-      "Your journey begins with Ryde. Find your ideal ride effortlessly.",
+      "Hop in and explore the city effortlessly. Your ride, your schedule.",
     image: images.onboarding1,
   },
   {
     id: 2,
-    title: "Best car in your hands with Ryde",
+    title: "Comfort and safety",
     description:
-      "Discover the convenience of finding your perfect ride with Ryde",
+      "From doorstep pickup to destination, enjoy a smooth and secure experience with Ryde.",
     image: images.onboarding2,
   },
   {
     id: 3,
-    title: "Your ride, your way. Let's go!",
+    title: "Get there faster and smarter",
     description:
-      "Enter your destination, sit back, and let us take care of the rest.",
+      "Choose your ride, track your driver, and arrive on time without any hassle.",
     image: images.onboarding3,
   },
 ];
