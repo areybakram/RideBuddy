@@ -1,8 +1,10 @@
 import CustomButton from "@/components/CustomButton";
 import { FormField } from "@/components/FormField";
+import GoogleAuth from "@/components/GoogleAuth";
 import { icons } from "@/constants";
+import { Link } from "expo-router";
 import React, { useState } from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 const SignUp = () => {
   const [form, setform] = useState({
@@ -50,6 +52,12 @@ const SignUp = () => {
       />
 
       <CustomButton title="SignUp" onPress={handleSignUp} className={"mt-6"} />
+
+      <GoogleAuth />
+
+      <Link href='/(auth)/signIn' className="mt-8"><Text className="text-gray-500 text-center">Already have an account? </Text>
+      <Text className="text-primary-500">Sign In</Text></Link>
+
     </ScrollView>
   );
 };

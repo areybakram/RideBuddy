@@ -51,7 +51,8 @@ export default function OnBoarding() {
       </Swiper>
       <CustomButton
         title={isLastSlide ? "Get Started" : "Next"} 
-      onPress={handleNext} />
+      onPress={handleNext}
+      className="mb-20" />
     </SafeAreaView>
   );
 }
