@@ -1,15 +1,3 @@
-// import { Redirect } from "expo-router";
-// import React from "react";
-// import { View } from "react-native";
-
-// const Home = () => {
-//   return (
-//       <Redirect href="/(auth)/welcome" />
-//   );
-// };
-
-// export default Home;
-
 
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
@@ -23,7 +11,6 @@ export default function Home() {
 
   console.log("Session task:", session?.currentTask);
 
-  // Redirect to welcome page if no session
   if (!session) {
     return <Redirect href="/(auth)/welcome" />;
   }
