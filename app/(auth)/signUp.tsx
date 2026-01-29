@@ -2,6 +2,7 @@ import CustomButton from "@/components/CustomButton";
 import { FormField } from "@/components/FormField";
 import GoogleAuth from "@/components/GoogleAuth";
 import SkeletonLoader from "@/components/SkeletonLoader";
+import SuccessModal from "@/components/SuccessModal";
 import VerificationModal from "@/components/VerificationModal";
 import { icons } from "@/constants";
 import { useSignUp } from "@clerk/clerk-expo";
@@ -24,6 +25,7 @@ const SignUp = () => {
   // const [loading, setLoading] = useState(false);
   const [signingUp, setSigningUp] = useState(false);
   const [verifying, setVerifying] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -63,11 +65,16 @@ const SignUp = () => {
       const result = await signUp.attemptEmailAddressVerification({ code });
 
       if (result.status === "complete") {
-        await setActive({
-          session: result.createdSessionId,
-        });
+        setPendingVerification(false);
+        setShowSuccessModal(true);
 
-        router.replace("/home");
+        setTimeout(async () => {
+          await setActive({
+            session: result.createdSessionId,
+          });
+          setShowSuccessModal(false);
+          router.replace("/home");
+        }, 4000);
       }
     } catch (err) {
       console.error(JSON.stringify(err, null, 2));
@@ -140,6 +147,11 @@ const SignUp = () => {
         onVerify={handleVerify}
         verifying={verifying}
         onClose={() => setPendingVerification(false)}
+      />
+
+      <SuccessModal
+        visible={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
       />
     </ScrollView>
   );
